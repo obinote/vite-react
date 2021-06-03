@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { Fragment } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+
+import './tailwind.css'
+
+// import { AppHeader } from './@Ui'
+import Category from './Features/nestedRoute/Category'
+import Login from './Features/login/Login'
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="text-4xl text-blue-700">Hello Vite + React!</p>
-      </header>
-    </div>
-  );
+    <Switch>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route path="/categori/:id">
+        <Login />
+      </Route>
+      <Route path="/">
+        <Redirect to="/login"></Redirect>
+      </Route>
+    </Switch>
+  )
 }
 
-export default App;
+export default App
